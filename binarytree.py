@@ -49,21 +49,24 @@ def test_buildTree():
     t.left_child.insert_right('E')
     t.right_child.insert_left('F')
     t.right_child.insert_right('G')
-    print "     input Tree     "
-    print "          A         "
-    print "      B        C    "
-    print "    D   E    F   G  "
-
-    print "Inorder traversal:"
-    print list(inorder_traversal(t))
-    print "Preorder traversal:"
-    print list(preorder_traversal(t))
-    print "Postorder traversal:"
-    print list(postorder_traversal(t))
+    # print "     input Tree     "
+    # print "          A         "
+    # print "      B        C    "
+    # print "    D   E    F   G  "
+    #
+    # print "Inorder traversal:"
+    # print list(inorder_traversal(t))
+    # print "Preorder traversal:"
+    # print list(preorder_traversal(t))
+    # print "Postorder traversal:"
+    # print list(postorder_traversal(t))
 
     assert t.key == 'A'
     assert t.right_child.key == 'C'
     assert t.left_child.right_child.key == 'E'
     assert t.right_child.left_child.key == 'F'
+    assert list(inorder_traversal(t)) == ['D', 'B', 'E', 'A', 'F', 'C', 'G']
+    assert list(preorder_traversal(t)) == ['A', 'B', 'D', 'E', 'C', 'F', 'G']
+    assert list(postorder_traversal(t)) == ['D', 'E', 'B', 'F', 'G', 'C', 'A']
 
-test_buildTree()
+# test_buildTree()

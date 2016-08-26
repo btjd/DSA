@@ -14,4 +14,4 @@ def test_sequential_search():
     sequence = list(range(1000))
     item = 999
     res = sequential(sequence, item)
-    assert res ==True
+    assert res == True
