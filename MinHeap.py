@@ -2,9 +2,14 @@ from random import shuffle
 
 class MinHeap(object):
     """
-    Min heap is a list where forst element is 0. at every element location p
-    the children are always at 2p and 2p+1. Min value is always at the top or
-    index 1 of our heap list
+    Min heap is a list where first element is 0.
+    The heap order property is as follows:
+    In a heap, for every node x with parent p,
+    the key in p is smaller than or equal to the key in x
+    We use a list to represent a binary heap where
+    the left child of a parent (at position p) is the node
+     that is found in position 2p in the list. Similarly,
+     the right child of the parent is at position 2p+1 in the list.
     """
     def __init__(self):
         self.heap = [0]
@@ -32,8 +37,9 @@ class MinHeap(object):
         # Min val is always at the top of the tree, at index 1
         min_val = self.heap[1]
         # Replace the min val at index 1 with the last item of heap
-        self.heap[1] = self.heap.pop()
+        self.heap[1] = self.heap[self.current_size]
         self.current_size = self.current_size - 1
+        self.heap.pop()
         # perc down to restore balance
         self._perc_down(1)
         return min_val
@@ -53,7 +59,7 @@ class MinHeap(object):
         if (i * 2) + 1 > self.current_size:
             return i * 2
         else:
-            if (i * 2) + 1 > i * 2:
+            if self.heap[i * 2 + 1] > self.heap[i * 2]:
                 return i * 2
             else:
                 return (i * 2) + 1
@@ -64,11 +70,18 @@ class MinHeap(object):
         self.heap = [0] + arr[:]
         while i > 0:
             self._perc_down(i)
+            print i, self.heap
             i = i - 1
 
-alist = range(1, 10)
-shuffle(alist)
+alist = [9,6,5,2,3]
+#shuffle(alist)
 print "Before: ", alist
 h = MinHeap()
 h.build_heap(alist)
 print "After: ", h.heap
+
+print h.del_min()
+print h.del_min()
+print h.del_min()
+print h.del_min()
+print h.del_min()
