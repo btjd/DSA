@@ -1,3 +1,4 @@
+# source : http://interactivepython.org/runestone/static/pythonds/Trees/SearchTreeImplementation.html
 class Node:
     def __init__(self, key, val, left=None, right=None, parent=None):
         self.key = key
