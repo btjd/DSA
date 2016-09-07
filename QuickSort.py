@@ -35,7 +35,7 @@ def _quicksort(array, start, stop):
             # keep shifting to the right
             while array[right] > pivot:
                 right -= 1
-            # Once we get to a point where satify both conditions that
+            # Once we get to a point where satisfy both conditions that
             # left marker is stopped at a value greater than pivot and
             # right marker is stopped at a value smaller than our pivot
             # swap both elements, increment both markers for next

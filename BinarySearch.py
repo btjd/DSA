@@ -3,7 +3,7 @@ def binary_iterative(sequence, item):
     start = 0
     end = len(sequence)-1
     while start <= end and not found:
-        mid = (start + end)/2
+        mid = (start + end)//2
         if sequence[mid] == item:
             found = True
         else:
